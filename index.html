@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPIPHII - Perkumpulan Pengacara Islam & Penasehat Hukum Islam Indonesia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        [x-cloak] { display: none !important; }
+        
+        .hero-bg { 
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900" 
+      x-data="{ 
+        page: 'home', 
+        mobileMenu: false, 
+        scrolled: false,
+        activeProfile: null 
+      }" 
+      @scroll.window="scrolled = (window.pageYOffset > 50)">
+
+    <!-- NAVIGATION -->
+    <nav :class="scrolled || page !== 'home' ? 'bg-white shadow-xl py-3' : 'bg-transparent py-6'" class="fixed w-full z-[100] transition-all duration-500">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div @click="page = 'home'; activeProfile = null; window.scrollTo(0,0)" class="flex items-center gap-4 cursor-pointer group">
+                <div class="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-scale-balanced text-white text-2xl"></i>
+                </div>
+                <div>
+                    <h1 :class="!scrolled && page === 'home' ? 'text-white' : 'text-slate-900'" class="text-2xl font-extrabold tracking-tighter leading-none">PPIPHII</h1>
+                    <p :class="!scrolled && page === 'home' ? 'text-emerald-400' : 'text-emerald-600'" class="text-[9px] font-bold tracking-[0.2em] uppercase mt-1">Advokat Islam Indonesia</p>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-10">
+                <button @click="page = 'home'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'home' && !activeProfile ? 'text-emerald-600 font-bold' : (!scrolled && page === 'home' ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-emerald-600')" class="text-sm uppercase tracking-widest transition-all">Beranda</button>
+                <button @click="page = 'tentang'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'tentang' ? 'text-emerald-600 font-bold' : (!scrolled && page === 'home' ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-emerald-600')" class="text-sm uppercase tracking-widest transition-all">Tentang</button>
+                <button @click="page = 'struktur'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'struktur' ? 'text-emerald-600 font-bold' : (!scrolled && page === 'home' ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-emerald-600')" class="text-sm uppercase tracking-widest transition-all">Struktur</button>
+                <button @click="page = 'layanan'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'layanan' ? 'text-emerald-600 font-bold' : (!scrolled && page === 'home' ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-emerald-600')" class="text-sm uppercase tracking-widest transition-all">Layanan</button>
+                <button @click="page = 'bergabung'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'bergabung' ? 'text-emerald-600 font-bold' : (!scrolled && page === 'home' ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-emerald-600')" class="text-sm uppercase tracking-widest transition-all">Bergabung</button>
+                
+                <a href="https://wa.me/62811536161" target="_blank" class="px-8 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 transition-all flex items-center gap-2 text-sm uppercase">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Konsultasi
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl" :class="!scrolled && page === 'home' ? 'text-white' : 'text-slate-900'">
+                <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars-staggered'"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenu" x-cloak x-transition class="lg:hidden fixed inset-0 z-[90] bg-white flex flex-col p-10 pt-32 gap-8 text-center h-screen overflow-y-auto">
+            <button @click="page = 'home'; activeProfile = null; mobileMenu = false; window.scrollTo(0,0)" class="text-2xl font-bold text-slate-900 uppercase">Beranda</button>
+            <button @click="page = 'tentang'; activeProfile = null; mobileMenu = false; window.scrollTo(0,0)" class="text-2xl font-bold text-slate-900 uppercase">Tentang</button>
+            <button @click="page = 'struktur'; activeProfile = null; mobileMenu = false; window.scrollTo(0,0)" class="text-2xl font-bold text-slate-900 uppercase">Struktur</button>
+            <button @click="page = 'layanan'; activeProfile = null; mobileMenu = false; window.scrollTo(0,0)" class="text-2xl font-bold text-slate-900 uppercase">Layanan</button>
+            <button @click="page = 'bergabung'; activeProfile = null; mobileMenu = false; window.scrollTo(0,0)" class="text-2xl font-bold text-slate-900 uppercase">Bergabung</button>
+            <a href="https://wa.me/62811536161" class="mt-10 py-5 bg-emerald-600 text-white rounded-2xl font-black text-xl uppercase">Hubungi WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- MAIN WRAPPER -->
+    <main>
+
+        <!-- PAGE: HOME -->
+        <div x-show="page === 'home' && !activeProfile" x-transition>
+            <!-- Hero -->
+            <section class="relative h-screen flex items-center justify-center hero-bg px-6">
+                <div class="relative z-10 text-center max-w-5xl">
+                    <span class="inline-block px-6 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 font-bold text-xs tracking-[0.3em] mb-8 uppercase floating">Integritas • Profesional • Syariah</span>
+                    <h2 class="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[0.9]">Solusi Hukum <br><span class="text-gradient">Terpercaya</span></h2>
+                    <p class="text-xl md:text-2xl text-slate-300 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
+                        Pendampingan hukum profesional dengan mengedepankan etika Islam untuk memberikan rasa aman dan keadilan yang hakiki.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <button @click="page = 'layanan'; window.scrollTo(0,0)" class="px-12 py-5 bg-emerald-600 text-white rounded-2xl font-black text-lg hover:bg-emerald-500 shadow-2xl transition-all uppercase">Layanan Kami</button>
+                        <button @click="page = 'tentang'; window.scrollTo(0,0)" class="px-12 py-5 bg-white/5 border border-white/10 text-white backdrop-blur-md rounded-2xl font-black text-lg hover:bg-white/10 transition-all uppercase">Tentang PPIPHII</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistik -->
+            <section class="relative z-20 -mt-24 container mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-emerald-600">
+                        <h3 class="text-4xl font-black text-slate-900 uppercase tracking-tighter">500+</h3>
+                        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] mt-2 uppercase">Anggota Advokat</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-emerald-600">
+                        <h3 class="text-4xl font-black text-slate-900 uppercase tracking-tighter">15+</h3>
+                        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] mt-2 uppercase">Kantor Wilayah</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-emerald-600">
+                        <h3 class="text-4xl font-black text-slate-900 uppercase tracking-tighter">1000+</h3>
+                        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] mt-2 uppercase">Kasus Selesai</p>
+                    </div>
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-emerald-600">
+                        <h3 class="text-4xl font-black text-slate-900 uppercase tracking-tighter">100%</h3>
+                        <p class="text-[10px] font-bold text-slate-400 tracking-[0.2em] mt-2 uppercase">Kepuasan Klien</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pendahuluan -->
+            <section class="py-32 container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-24 items-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800" class="rounded-[3rem] shadow-3xl grayscale hover:grayscale-0 transition-all duration-700" alt="Hukum Indonesia">
+                        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-emerald-600 rounded-[3rem] -z-10 opacity-10"></div>
+                    </div>
+                    <div class="space-y-8">
+                        <h4 class="text-emerald-600 font-black text-xs uppercase tracking-[0.3em]">Komitmen Kami</h4>
+                        <h2 class="text-5xl font-black text-slate-900 tracking-tighter leading-none">Menjadi Pilar Keadilan Berbasis Syariah</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            PPIPHII hadir untuk menjawab tantangan hukum di Indonesia dengan memberikan perspektif hukum yang jernih, profesional, dan tetap berpegang teguh pada nilai-nilai moral keagamaan yang luhur.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-4 font-bold text-slate-700 uppercase text-sm">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i> Legalitas Resmi Kemenkumham
+                            </li>
+                            <li class="flex items-center gap-4 font-bold text-slate-700 uppercase text-sm">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i> Advokat Berpengalaman Puluhan Tahun
+                            </li>
+                            <li class="flex items-center gap-4 font-bold text-slate-700 uppercase text-sm">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i> Jaringan Nasional Luas
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE: TENTANG -->
+        <div x-show="page === 'tentang' && !activeProfile" x-cloak class="pt-40 pb-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto mb-32 text-center">
+                    <h2 class="text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Profil Organisasi</h2>
+                    <p class="text-xl text-slate-500 leading-relaxed italic">"Perkumpulan Pengacara Islam & Penasehat Hukum Islam Indonesia"</p>
+                </div>
+
+                <!-- Sejarah & Visi Misi -->
+                <div class="grid lg:grid-cols-2 gap-20 mb-32">
+                    <div class="space-y-8">
+                        <h3 class="text-3xl font-bold text-slate-900 uppercase border-l-8 border-emerald-600 pl-6">Sejarah PPIPHII</h3>
+                        <p class="text-slate-600 leading-loose">
+                            Berawal dari kegelisahan para praktisi hukum muslim akan perlunya wadah yang mensinergikan hukum positif Indonesia dengan hukum Islam secara formal dan profesional. PPIPHII didirikan untuk melahirkan advokat-advokat handal yang memiliki integritas moral di atas segalanya.
+                        </p>
+                        <p class="text-slate-600 leading-loose">
+                            Hingga saat ini, kami terus aktif dalam memberikan penyuluhan hukum, pendampingan kasus di Pengadilan Agama maupun Negeri, serta berkontribusi dalam pembangunan hukum nasional.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 p-16 rounded-[4rem] text-white shadow-3xl">
+                        <div class="space-y-12">
+                            <div>
+                                <h4 class="text-emerald-400 font-black text-xs uppercase tracking-widest mb-4">Visi Utama</h4>
+                                <p class="text-2xl font-bold">Terwujudnya organisasi advokat yang mandiri, bermartabat, dan berwibawa di kancah nasional.</p>
+                            </div>
+                            <div class="h-px bg-white/10"></div>
+                            <div>
+                                <h4 class="text-emerald-400 font-black text-xs uppercase tracking-widest mb-4">Misi Strategis</h4>
+                                <ul class="space-y-4 text-slate-400 text-sm">
+                                    <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500"></i> Meningkatkan kompetensi advokat syariah.</li>
+                                    <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500"></i> Memberikan bantuan hukum cuma-cuma bagi fakir miskin.</li>
+                                    <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500"></i> Menjalin kerjasama dengan lembaga yudikatif.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="relative py-20 max-w-4xl mx-auto timeline-line">
+                    <div class="space-y-24">
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12 text-right">
+                                <h4 class="text-2xl font-black text-slate-900">2018</h4>
+                                <p class="text-slate-500 mt-2 text-sm uppercase">Pertemuan Inisiasi Lampung</p>
+                            </div>
+                            <div class="w-10 h-10 bg-emerald-600 rounded-full border-8 border-white shadow-xl z-10"></div>
+                            <div class="w-5/12"></div>
+                        </div>
+                        <div class="relative flex items-center justify-between">
+                            <div class="w-5/12"></div>
+                            <div class="w-10 h-10 bg-slate-900 rounded-full border-8 border-white shadow-xl z-10"></div>
+                            <div class="w-5/12">
+                                <h4 class="text-2xl font-black text-slate-900">2020</h4>
+                                <p class="text-slate-500 mt-2 text-sm uppercase">Pengesahan Kemenkumham RI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: STRUKTUR -->
+        <div x-show="page === 'struktur' && !activeProfile" x-cloak class="pt-40 pb-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto mb-24">
+                    <h2 class="text-5xl font-black mb-6 uppercase tracking-tighter text-slate-900">Kepengurusan Pusat</h2>
+                    <p class="text-slate-400 font-bold uppercase text-xs tracking-[0.3em]">Dewan Pimpinan Pusat (DPP) PPIPHII</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-12">
+                    <!-- KETUM -->
+                    <div class="lg:col-span-3 flex justify-center">
+                        <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-emerald-600">
+                            <div class="md:w-2/5 bg-slate-200 h-96 md:h-auto flex items-center justify-center">
+                                <i class="fa-solid fa-user-tie text-[120px] text-slate-300"></i>
+                            </div>
+                            <div class="md:w-3/5 p-16">
+                                <span class="bg-emerald-100 text-emerald-700 px-6 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Ketua Umum</span>
+                                <h3 class="text-4xl font-extrabold text-slate-900 mb-6 mt-4">H. [Nama Ketua], S.H., M.H.</h3>
+                                <p class="text-slate-500 leading-relaxed mb-10 italic">"Memimpin dengan amanah, membela dengan syariah."</p>
+                                <button @click="activeProfile = 'ketua'; window.scrollTo(0,0)" class="px-10 py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 transition-all uppercase text-sm">Lihat Detail Profil</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEKJEN -->
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-8 border-slate-900">
+                        <h4 class="text-2xl font-extrabold text-slate-900 mb-2 uppercase">Sekjen</h4>
+                        <p class="text-slate-500 mb-10 text-sm">Mengatur administrasi dan koordinasi seluruh wilayah.</p>
+                        <button @click="activeProfile = 'sekjen'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all uppercase text-xs">Profil & Kontak</button>
+                    </div>
+
+                    <!-- BENDUM -->
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-8 border-emerald-600">
+                        <h4 class="text-2xl font-extrabold text-slate-900 mb-2 uppercase">Bendum</h4>
+                        <p class="text-slate-500 mb-10 text-sm">Manajemen keuangan organisasi secara transparan.</p>
+                        <button @click="activeProfile = 'bendum'; window.scrollTo(0,0)" class="w-full py-4 bg-emerald-600 text-white font-bold rounded-2xl hover:bg-emerald-700 transition-all uppercase text-xs">Profil & Kontak</button>
+                    </div>
+
+                    <!-- BIDANG -->
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-8 border-emerald-900">
+                        <h4 class="text-2xl font-extrabold text-slate-900 mb-2 uppercase">Bidang Ahli</h4>
+                        <p class="text-slate-500 mb-10 text-sm">Tim riset, litigasi, dan pengembangan anggota.</p>
+                        <button @click="page = 'struktur'" class="w-full py-4 border-2 border-emerald-900 text-emerald-900 font-bold rounded-2xl uppercase text-xs">Selengkapnya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUB-PAGE: PROFIL DINAMIS (DENGAN KONTAK PERSON) -->
+        <div x-show="activeProfile" x-cloak class="pt-40 pb-24">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <button @click="activeProfile = null; window.scrollTo(0,0)" class="mb-12 flex items-center gap-3 font-bold text-emerald-600 uppercase tracking-widest text-xs hover:-translate-x-2 transition-transform">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Struktur
+                </button>
+
+                <div class="bg-white rounded-[4rem] shadow-3xl overflow-hidden">
+                    <div :class="activeProfile === 'sekjen' ? 'bg-slate-900' : 'bg-emerald-900'" class="h-64 relative transition-colors duration-700">
+                        <div class="absolute -bottom-24 left-16 w-56 h-56 bg-slate-100 rounded-[3rem] border-[12px] border-white shadow-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie text-8xl text-slate-300"></i>
+                        </div>
+                    </div>
+                    <div class="pt-32 px-16 pb-20">
+                        <div class="grid lg:grid-cols-3 gap-16">
+                            <div class="lg:col-span-2 space-y-8">
+                                <h2 class="text-5xl font-black text-slate-900" x-text="activeProfile === 'ketua' ? 'H. [Nama Ketua], S.H., M.H.' : (activeProfile === 'sekjen' ? '[Nama Sekjen], S.H.I., M.H.' : '[Nama Bendum], S.E., S.H.')"></h2>
+                                <p class="text-emerald-600 font-black text-xl uppercase tracking-widest" x-text="activeProfile === 'ketua' ? 'Ketua Umum DPP' : (activeProfile === 'sekjen' ? 'Sekretaris Jenderal DPP' : 'Bendahara Umum DPP')"></p>
+                                <div class="h-px bg-slate-100"></div>
+                                <p class="text-slate-600 leading-loose text-lg">
+                                    Berdedikasi untuk memajukan profesi advokat di Indonesia dengan pendekatan yang humanis dan religius. Memiliki pengalaman luas dalam penanganan perkara di tingkat nasional.
+                                </p>
+                            </div>
+                            <!-- BAGIAN KONTAK PERSON YANG DIMINTA -->
+                            <div class="space-y-6">
+                                <div class="bg-slate-50 p-10 rounded-[3rem] border border-slate-100">
+                                    <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-8">Informasi Kontak</h4>
+                                    <div class="space-y-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></div>
+                                            <div>
+                                                <p class="text-[9px] font-bold text-slate-400 uppercase">WhatsApp</p>
+                                                <p class="font-bold text-slate-700">+62 811-536-161</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-10 h-10 bg-slate-800 text-white rounded-xl flex items-center justify-center"><i class="fa-solid fa-envelope"></i></div>
+                                            <div>
+                                                <p class="text-[9px] font-bold text-slate-400 uppercase">Email</p>
+                                                <p class="font-bold text-slate-700" x-text="activeProfile + '@ppiphii.or.id'"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: LAYANAN -->
+        <div x-show="page === 'layanan' && !activeProfile" x-cloak class="pt-40 pb-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto mb-24">
+                    <h2 class="text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Layanan Hukum</h2>
+                    <p class="text-xl text-slate-500 font-light">Pendampingan hukum komprehensif untuk individu maupun korporasi.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border border-slate-100 group hover:bg-emerald-600 transition-all duration-500">
+                        <i class="fa-solid fa-scale-unbalanced text-4xl text-emerald-600 mb-8 group-hover:text-white"></i>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white uppercase tracking-tighter">Hukum Keluarga</h3>
+                        <p class="text-slate-500 group-hover:text-emerald-50 mb-8">Waris, Hibah, Wakaf, Cerai, dan Hak Asuh Anak.</p>
+                        <a href="https://wa.me/62811536161" class="text-xs font-black text-emerald-600 group-hover:text-white uppercase tracking-[0.2em]">Pesan Layanan &rarr;</a>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border border-slate-100 group hover:bg-emerald-600 transition-all duration-500">
+                        <i class="fa-solid fa-mosque text-4xl text-emerald-600 mb-8 group-hover:text-white"></i>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white uppercase tracking-tighter">Ekonomi Syariah</h3>
+                        <p class="text-slate-500 group-hover:text-emerald-50 mb-8">Sengketa Perbankan Syariah dan Akad Bisnis Muamalah.</p>
+                        <a href="https://wa.me/62811536161" class="text-xs font-black text-emerald-600 group-hover:text-white uppercase tracking-[0.2em]">Pesan Layanan &rarr;</a>
+                    </div>
+                    <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border border-slate-100 group hover:bg-emerald-600 transition-all duration-500">
+                        <i class="fa-solid fa-gavel text-4xl text-emerald-600 mb-8 group-hover:text-white"></i>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white uppercase tracking-tighter">Litigasi Umum</h3>
+                        <p class="text-slate-500 group-hover:text-emerald-50 mb-8">Pendampingan Perkara Pidana dan Perdata di Pengadilan.</p>
+                        <a href="https://wa.me/62811536161" class="text-xs font-black text-emerald-600 group-hover:text-white uppercase tracking-[0.2em]">Pesan Layanan &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: BERGABUNG (KEMBALI LENGKAP) -->
+        <div x-show="page === 'bergabung' && !activeProfile" x-cloak class="pt-40 pb-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto bg-emerald-900 rounded-[4rem] overflow-hidden flex flex-col lg:flex-row shadow-3xl">
+                    <div class="lg:w-1/2 p-16 md:p-24 space-y-12">
+                        <h2 class="text-6xl font-black text-white uppercase tracking-tighter leading-none">Gabung <br><span class="text-emerald-400">PPIPHII</span></h2>
+                        <p class="text-emerald-100/70 text-lg leading-relaxed">
+                            Jadilah bagian dari garda terdepan advokat muslim Indonesia yang profesional dan amanah. Kami menyediakan pendidikan profesi (PKPHI) dan penyumpahan advokat (SPA).
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xl uppercase">PKPHI</h4>
+                                    <p class="text-emerald-400 text-xs font-black uppercase">Pendidikan Profesi</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-white text-2xl"><i class="fa-solid fa-scroll"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-xl uppercase">SPA</h4>
+                                    <p class="text-emerald-400 text-xs font-black uppercase">Sumpah Advokat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 bg-white p-16 md:p-24">
+                        <h3 class="text-3xl font-black text-slate-900 mb-10 uppercase tracking-tighter">Formulir Minat</h3>
+                        <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='https://wa.me/62811536161?text=Halo%20PPIPHII,%20saya%20tertarik%20bergabung'">
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Nama Lengkap & Gelar</label>
+                                <input required type="text" placeholder="Contoh: Budi Santoso, S.H." class="w-full px-8 py-5 bg-slate-100 rounded-2xl border-none focus:ring-4 focus:ring-emerald-500/20">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Asal Kota / Wilayah</label>
+                                <input required type="text" placeholder="Contoh: Lampung" class="w-full px-8 py-5 bg-slate-100 rounded-2xl border-none focus:ring-4 focus:ring-emerald-500/20">
+                            </div>
+                            <button type="submit" class="w-full py-6 bg-emerald-600 text-white font-black text-xl rounded-2xl hover:bg-emerald-500 shadow-2xl transition-all uppercase">Daftar Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER (KEMBALI LENGKAP) -->
+    <footer class="bg-slate-950 text-white pt-32 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-20 mb-24">
+                <!-- Branding -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-4">
+                        <i class="fa-solid fa-scale-balanced text-emerald-500 text-4xl"></i>
+                        <span class="text-3xl font-black tracking-tighter">PPIPHII</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Perkumpulan Pengacara Islam & Penasehat Hukum Islam Indonesia. Berbadan hukum resmi dan diakui negara untuk penegakan keadilan syariah.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-emerald-600 transition-all text-xl"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-emerald-600 transition-all text-xl"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigasi Cepat -->
+                <div>
+                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Navigasi</h4>
+                    <ul class="space-y-5 text-slate-400 text-sm font-bold uppercase tracking-widest">
+                        <li><button @click="page = 'home'; window.scrollTo(0,0)" class="hover:text-emerald-400 transition-colors text-left">Beranda Utama</button></li>
+                        <li><button @click="page = 'tentang'; window.scrollTo(0,0)" class="hover:text-emerald-400 transition-colors text-left">Tentang Kami</button></li>
+                        <li><button @click="page = 'struktur'; window.scrollTo(0,0)" class="hover:text-emerald-400 transition-colors text-left">Struktur DPP</button></li>
+                        <li><button @click="page = 'layanan'; window.scrollTo(0,0)" class="hover:text-emerald-400 transition-colors text-left">Bidang Layanan</button></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak Kantor -->
+                <div>
+                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Kontak Pusat</h4>
+                    <div class="space-y-6 text-sm text-slate-500">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-location-dot text-emerald-500 mt-1"></i>
+                            <p>Jl. Sidoharjo, Jatiagung, <br>Lampung Selatan, Prov. Lampung.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-phone text-emerald-500 mt-1"></i>
+                            <p>+62 811 536 161</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-envelope text-emerald-500 mt-1"></i>
+                            <p>admin@ppiphii.or.id</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peta Lokasi (Iframe) -->
+                <div>
+                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Lokasi Kami</h4>
+                    <div class="w-full h-40 bg-slate-900 rounded-3xl overflow-hidden border border-white/5 grayscale">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.3392336341253!2d105.28!3d-5.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjEnMDAuMCJTIDEwNcKwMTYnNDguMCJF!5e0!3m2!1sid!2sid!4v1620000000000" class="w-full h-full border-none"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-12 border-t border-white/5 text-center">
+                <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.5em]">&copy; 2024 DEWAN PIMPINAN PUSAT PPIPHII. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/62811536161" target="_blank" class="fixed bottom-10 right-10 z-[110] w-18 h-18 bg-emerald-500 text-white rounded-[1.5rem] shadow-2xl shadow-emerald-600/50 flex items-center justify-center text-4xl hover:scale-110 transition-all p-4">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
