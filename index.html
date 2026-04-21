@@ -374,55 +374,53 @@
 
         <!-- PAGE: STRUKTUR (KONTEN TETAP) -->
         <div x-show="page === 'struktur' && !activeProfile" x-cloak class="pt-40 pb-24 bg-slate-100">
-            <div class="container mx-auto px-6 text-center">
-                <div class="mb-24">
-                    <h2 class="text-5xl font-black text-slate-900 mb-4 uppercase">Struktur Organisasi</h2>
-                    <p class="text-slate-500 uppercase tracking-[0.3em] font-bold text-xs">Dewan Pimpinan Pusat (DPP)</p>
-                </div>
-                <div class="grid lg:grid-cols-3 gap-12">
-                    <!-- Ketua Umum -->
-                    <div class="lg:col-span-3 flex justify-center">
-                        <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-emerald-600">
-                            <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
-                                <img :src="ketua.jpg" alt="Ketua Umum">
-                            </div>
-                            <div class="md:w-3/5 p-12 text-left">
-                                <span class="text-emerald-600 font-black uppercase text-[10px] tracking-widest">Ketua Umum</span>
-                                <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.ketua.nama"></h3>
-                                <div class="flex gap-4">
-                                    <button @click="activeProfile = 'ketua'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs">Profil</button>
-                                    <a :href="ketua.jpg" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs">Portofolio</a>
-                                </div>
-                            </div>
-                        </div>
+    <div class="container mx-auto px-6 text-center">
+        <div class="mb-24">
+            <h2 class="text-5xl font-black text-slate-900 mb-4 uppercase">Struktur Organisasi</h2>
+            <p class="text-slate-500 uppercase tracking-[0.3em] font-bold text-xs">Dewan Pimpinan Pusat (DPP)</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-3 flex justify-center">
+                <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-emerald-600">
+                    <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
+                        <img src="ketua.jpg" alt="Ketua Umum" class="w-full h-full object-cover">
                     </div>
-                    <!-- Sekjen -->
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
-                        <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
-                            <img :src="seketaris.jpg" class="img-profile-fix group-hover:scale-110 transition-transform" alt="Sekjen">
-                        </div>
-                        <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.sekjen.nama"></h4>
-                        <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Sekjen</p>
-                        <div class="flex flex-col gap-2">
-                            <button @click="activeProfile = 'sekjen'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
-                            <a :href="profiles.sekjen.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
-                        </div>
-                    </div>
-                    <!-- Bendum -->
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
-                        <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
-                            <img :src="bendahara.jpg" class="img-profile-fix group-hover:scale-110 transition-transform" alt="Bendum">
-                        </div>
-                        <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.bendum.nama"></h4>
-                        <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Bendahara Umum</p>
-                        <div class="flex flex-col gap-2">
-                            <button @click="activeProfile = 'bendum'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
-                            <a :href="profiles.bendum.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
+                    <div class="md:w-3/5 p-12 text-left">
+                        <span class="text-emerald-600 font-black uppercase text-[10px] tracking-widest">Ketua Umum</span>
+                        <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.ketua.nama"></h3>
+                        <div class="flex gap-4">
+                            <button @click="activeProfile = 'ketua'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs">Profil</button>
+                            <a href="ketua.jpg" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs">Portofolio</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
+                <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
+                    <img src="seketaris.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Sekjen">
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.sekjen.nama"></h4>
+                <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Sekjen</p>
+                <div class="flex flex-col gap-2">
+                    <button @click="activeProfile = 'sekjen'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
+                    <a :href="profiles.sekjen.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
+                </div>
+            </div>
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
+                <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
+                    <img src="bendahara.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Bendum">
+                </div>
+                <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.bendum.nama"></h4>
+                <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Bendahara Umum</p>
+                <div class="flex flex-col gap-2">
+                    <button @click="activeProfile = 'bendum'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
+                    <a :href="profiles.bendum.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+
 
         <!-- PAGE: LAYANAN (KONTEN TETAP) -->
         <div x-show="page === 'layanan' && !activeProfile" x-cloak class="pt-40 pb-24">
