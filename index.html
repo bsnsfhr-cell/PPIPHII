@@ -62,6 +62,15 @@
                 foto: 'ketua.jpg',
                 portfolio: 'https://portfolio-ketua.com'
             },
+               // TAMBAHKAN BAGIAN INI:
+    pengawas: {
+        nama: 'NAMA KEPALA PENGAWAS ANDA', 
+        jabatan: 'Ketua Dewan Pengawas',
+        foto: 'pengawas.jpg', 
+        portfolio: 'https://portfolio-pengawas.com'
+    },
+    sekjen: {
+        nama: 'DR. c. WARSONO. S.H.I., M.H.',
             sekjen: {
                 nama: 'DR. c. WARSONO. S.H.I., M.H.',
                 jabatan: 'Sekretaris Jenderal DPP',
@@ -395,6 +404,22 @@
                     </div>
                 </div>
             </div>
+            <div class="lg:col-span-3 flex justify-center mt-8">
+    <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-slate-800">
+        <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
+            <img :src="profiles.pengawas.foto" alt="Ketua Dewan Pengawas" class="w-full h-full object-cover">
+        </div>
+        <div class="md:w-3/5 p-12 text-left">
+            <span class="text-slate-500 font-black uppercase text-[10px] tracking-widest">Ketua Dewan Pengawas</span>
+            <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.pengawas.nama"></h3>
+            <div class="flex gap-4">
+                <button @click="activeProfile = 'pengawas'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs shadow-lg hover:bg-slate-800 transition-all">Profil</button>
+                <a :href="profiles.pengawas.portfolio" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs hover:bg-slate-50 transition-all">Portofolio</a>
+            </div>
+        </div>
+    </div>
+</div>
+
             <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
                 <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
                     <img src="seketaris.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Sekjen">
