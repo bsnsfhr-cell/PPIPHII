@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -55,22 +56,20 @@
         mobileMenu: false, 
         scrolled: false,
         activeProfile: null,
+        searchTerm: '',
         profiles: {
             ketua: {
                 nama: 'DR. c. SRIYANTO.S.Sy., M.Ag.',
                 jabatan: 'Ketua Umum DPP',
                 foto: 'ketua.jpg',
-                portfolio: 'https://portfolio-ketua.com'
+                portfolio: 'ketua.jpg'
             },
-               // TAMBAHKAN BAGIAN INI:
-    pengawas: {
-        nama: 'NAMA KEPALA PENGAWAS ANDA', 
-        jabatan: 'Ketua Dewan Pengawas',
-        foto: 'pengawas.jpg', 
-        portfolio: 'https://portfolio-pengawas.com'
-    },
-    sekjen: {
-        nama: 'DR. c. WARSONO. S.H.I., M.H.',
+            pengawas: {
+                nama: 'NAMA KETUA DEWAN PENGAWAS',
+                jabatan: 'Ketua Dewan Pengawas',
+                foto: 'pengawas.jpg',
+                portfolio: 'pengawas.jpg'
+            },
             sekjen: {
                 nama: 'DR. c. WARSONO. S.H.I., M.H.',
                 jabatan: 'Sekretaris Jenderal DPP',
@@ -83,7 +82,59 @@
                 foto: 'bendahara.jpg',
                 portfolio: 'https://portfolio-bendum.com'
             }
-        }
+        },
+        advokats: [
+            { nama: 'Achmad Fauzi, S.H.', prov: 'DKI Jakarta', wa: '6281234567890' },
+            { nama: 'Siti Aminah, S.H.I.', prov: 'Jawa Barat', wa: '6281234567891' },
+            { nama: 'Budi Santoso, M.H.', prov: 'Jawa Tengah', wa: '6281234567892' },
+            { nama: 'Hendra Wijaya, S.H.', prov: 'Jawa Timur', wa: '6281234567893' },
+            { nama: 'Zulkipli, S.Sy.', prov: 'Lampung', wa: '6281234567894' },
+            { nama: 'Nurul Huda, S.H.', prov: 'Banten', wa: '6281234567895' },
+            { nama: 'Rizky Pratama, M.H.', prov: 'Sumatera Utara', wa: '6281234567896' },
+            { nama: 'Dewi Sartika, S.H.', prov: 'Sumatera Selatan', wa: '6281234567897' },
+            { nama: 'Fajar Shodiq, S.H.I.', prov: 'DI Yogyakarta', wa: '6281234567898' },
+            { nama: 'Anisa Bahar, S.H.', prov: 'Bali', wa: '6281234567899' },
+            { nama: 'Irfan Hakim, S.Sy.', prov: 'Riau', wa: '6281234567800' },
+            { nama: 'Lutfi Agizal, M.H.', prov: 'Kalimantan Timur', wa: '6281234567801' },
+            { nama: 'Siska Khair, S.H.', prov: 'Kalimantan Barat', wa: '6281234567802' },
+            { nama: 'Andi Mallarangeng, S.H.', prov: 'Sulawesi Selatan', wa: '6281234567803' },
+            { nama: 'Yusril Ihza, M.H.', prov: 'Bangka Belitung', wa: '6281234567804' },
+            { nama: 'Hotman Paris, S.H.', prov: 'DKI Jakarta', wa: '6281234567805' },
+            { nama: 'Najwa Shihab, S.H.', prov: 'DKI Jakarta', wa: '6281234567806' },
+            { nama: 'Mahendradatta, S.H.', prov: 'Bali', wa: '6281234567807' },
+            { nama: 'Todung Mulya, M.H.', prov: 'Sumatera Utara', wa: '6281234567808' },
+            { nama: 'Elza Syarief, S.H.', prov: 'Jawa Barat', wa: '6281234567809' },
+            { nama: 'Farhat Abbas, S.H.', prov: 'Jawa Tengah', wa: '6281234567810' },
+            { nama: 'Sunan Kalijaga, S.H.', prov: 'Banten', wa: '6281234567811' },
+            { nama: 'Razman Arif, M.H.', prov: 'Sumatera Utara', wa: '6281234567812' },
+            { nama: 'Kamaluddin, S.Sy.', prov: 'Aceh', wa: '6281234567813' },
+            { nama: 'Hamdan Zoelva, M.H.', prov: 'NTB', wa: '6281234567814' },
+            { nama: 'Yusril, S.H.', prov: 'Kepulauan Riau', wa: '6281234567815' },
+            { nama: 'Bambang Widjojanto, S.H.', prov: 'DKI Jakarta', wa: '6281234567816' },
+            { nama: 'Denny Indrayana, M.H.', prov: 'Kalimantan Selatan', wa: '6281234567817' },
+            { nama: 'Refly Harun, S.H.', prov: 'Sumatera Selatan', wa: '6281234567818' },
+            { nama: 'Zainuddin Ali, S.H.', prov: 'Sulawesi Tengah', wa: '6281234567819' },
+            { nama: 'Muladi, M.H.', prov: 'Jawa Timur', wa: '6281234567820' },
+            { nama: 'Bagir Manan, S.H.', prov: 'Lampung', wa: '6281234567821' },
+            { nama: 'Artidjo Alkostar, S.H.', prov: 'NTB', wa: '6281234567822' },
+            { nama: 'Jimly Asshiddiqie, M.H.', prov: 'Sumatera Selatan', wa: '6281234567823' },
+            { nama: 'Mahfud MD, S.H.', prov: 'Jawa Timur', wa: '6281234567824' },
+            { nama: 'Patrialis Akbar, S.Sy.', prov: 'Sumatera Barat', wa: '6281234567825' },
+            { nama: 'Maruarar Siahaan, S.H.', prov: 'Sumatera Utara', wa: '6281234567826' },
+            { nama: 'Hasyim Muzadi, S.H.I.', prov: 'Jawa Timur', wa: '6281234567827' },
+            { nama: 'Din Syamsuddin, M.H.', prov: 'NTB', wa: '6281234567828' },
+            { nama: 'Said Aqil, S.H.', prov: 'Jawa Barat', wa: '6281234567829' },
+            { nama: 'Yusuf Mansur, S.Sy.', prov: 'Banten', wa: '6281234567830' },
+            { nama: 'Aa Gym, S.H.', prov: 'Jawa Barat', wa: '6281234567831' },
+            { nama: 'Ustadz Somad, M.H.', prov: 'Riau', wa: '6281234567832' },
+            { nama: 'Ustadz Adi, S.H.', prov: 'Banten', wa: '6281234567833' },
+            { nama: 'Habib Rizieq, M.H.', prov: 'DKI Jakarta', wa: '6281234567834' },
+            { nama: 'Gus Miftah, S.Sy.', prov: 'DI Yogyakarta', wa: '6281234567835' },
+            { nama: 'Gus Baha, S.H.I.', prov: 'Jawa Tengah', wa: '6281234567836' },
+            { nama: 'Hanif Dhakiri, M.H.', prov: 'Jawa Tengah', wa: '6281234567837' },
+            { nama: 'Muhaimin Iskandar, S.H.', prov: 'Jawa Timur', wa: '6281234567838' },
+            { nama: 'Anies Baswedan, M.H.', prov: 'DKI Jakarta', wa: '6281234567839' }
+        ]
       }" 
       @scroll.window="scrolled = (window.pageYOffset > 50)">
 
@@ -104,6 +155,8 @@
                 <button @click="page = 'home'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'home' && !activeProfile ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Beranda</button>
                 <button @click="page = 'tentang'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'tentang' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Tentang</button>
                 <button @click="page = 'struktur'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'struktur' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Struktur</button>
+                <!-- MENU BARU: DAFTAR ADVOKAT -->
+                <button @click="page = 'daftar-advokat'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'daftar-advokat' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Daftar Advokat</button>
                 <button @click="page = 'layanan'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'layanan' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Layanan</button>
                 <button @click="page = 'bergabung'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'bergabung' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Bergabung</button>
                 <a href="https://wa.me/62811536161" target="_blank" class="px-6 py-3 bg-emerald-600 text-white rounded-xl shadow-lg shadow-emerald-600/20 hover:bg-emerald-500 transition-all">Hubungi</a>
@@ -118,6 +171,7 @@
             <button @click="page = 'home'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Beranda</button>
             <button @click="page = 'tentang'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Tentang</button>
             <button @click="page = 'struktur'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Struktur</button>
+            <button @click="page = 'daftar-advokat'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Daftar Advokat</button>
             <button @click="page = 'layanan'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Layanan</button>
             <button @click="page = 'bergabung'; mobileMenu = false; window.scrollTo(0,0)" class="text-xl font-bold uppercase">Bergabung</button>
         </div>
@@ -196,7 +250,7 @@
                 </div>
             </section>
 
-            <!-- Alur Konsultasi (New) -->
+            <!-- Alur Konsultasi -->
             <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
                 <div class="container mx-auto px-6">
                     <div class="text-center max-w-3xl mx-auto mb-20">
@@ -204,25 +258,21 @@
                         <p class="text-slate-400">Proses hukum yang transparan dan mudah diikuti untuk kenyamanan Anda.</p>
                     </div>
                     <div class="grid md:grid-cols-4 gap-12 relative">
-                        <!-- Step 1 -->
                         <div class="text-center relative">
                             <div class="w-20 h-20 bg-emerald-600 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-black shadow-lg shadow-emerald-600/30">1</div>
                             <h4 class="font-bold uppercase tracking-widest text-sm mb-2">Konsultasi</h4>
                             <p class="text-xs text-slate-400">Sampaikan keluhan atau kebutuhan hukum Anda melalui WhatsApp atau telepon.</p>
                         </div>
-                        <!-- Step 2 -->
                         <div class="text-center">
                             <div class="w-20 h-20 bg-slate-800 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-black border border-white/5">2</div>
                             <h4 class="font-bold uppercase tracking-widest text-sm mb-2">Analisis Kasus</h4>
                             <p class="text-xs text-slate-400">Tim ahli kami akan melakukan bedah kasus dari sisi hukum positif dan syariah.</p>
                         </div>
-                        <!-- Step 3 -->
                         <div class="text-center">
                             <div class="w-20 h-20 bg-slate-800 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-black border border-white/5">3</div>
                             <h4 class="font-bold uppercase tracking-widest text-sm mb-2">Strategi</h4>
                             <p class="text-xs text-slate-400">Kami menyusun langkah-langkah hukum yang paling efektif dan efisien.</p>
                         </div>
-                        <!-- Step 4 -->
                         <div class="text-center">
                             <div class="w-20 h-20 bg-slate-800 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-black border border-white/5">4</div>
                             <h4 class="font-bold uppercase tracking-widest text-sm mb-2">Penyelesaian</h4>
@@ -232,7 +282,7 @@
                 </div>
             </section>
 
-            <!-- Keuntungan & Pilar (New) -->
+            <!-- Keuntungan & Pilar -->
             <section class="py-24 container mx-auto px-6">
                 <div class="grid lg:grid-cols-3 gap-8">
                     <div class="p-12 bg-white rounded-[3rem] shadow-xl border border-slate-100 hover-card group">
@@ -256,7 +306,7 @@
                 </div>
             </section>
 
-            <!-- FAQ Section (New) -->
+            <!-- FAQ Section -->
             <section class="py-24 bg-slate-50">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
@@ -295,7 +345,7 @@
                 </div>
             </section>
 
-            <!-- Testimonials (New) -->
+            <!-- Testimonials -->
             <section class="py-24 bg-white overflow-hidden">
                 <div class="container mx-auto px-6">
                     <h2 class="text-4xl font-black text-center uppercase tracking-tighter mb-16">Apa Kata Klien?</h2>
@@ -343,7 +393,7 @@
                 </div>
             </section>
 
-            <!-- Newsletter/CTA (New) -->
+            <!-- Newsletter/CTA -->
             <section class="py-20 container mx-auto px-6">
                 <div class="bg-emerald-600 rounded-[3.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
@@ -359,14 +409,14 @@
             </section>
         </div>
 
-        <!-- PAGE: TENTANG (KONTEN TETAP) -->
+        <!-- PAGE: TENTANG -->
         <div x-show="page === 'tentang' && !activeProfile" x-cloak class="pt-40 pb-24">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center mb-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto mb-24">
                     <h2 class="text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Tentang Kami</h2>
                     <p class="text-slate-500 leading-relaxed text-lg">Wadah berkumpulnya para Pengacara dan Penasehat Hukum Islam yang memiliki visi untuk menegakkan keadilan di Indonesia.</p>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-16">
+                <div class="grid lg:grid-cols-2 gap-16 text-left">
                     <div class="space-y-8 text-slate-600">
                         <h3 class="text-3xl font-black text-slate-900 uppercase">Misi & Filosofi</h3>
                         <p>PPIPHII didirikan sebagai jawaban atas kebutuhan masyarakat terhadap jasa hukum yang jujur dan profesional. Kami percaya bahwa setiap advokat harus memiliki bekal ilmu hukum yang mumpuni serta moralitas yang kuat.</p>
@@ -381,76 +431,116 @@
             </div>
         </div>
 
-        <!-- PAGE: STRUKTUR (KONTEN TETAP) -->
+        <!-- PAGE: STRUKTUR -->
         <div x-show="page === 'struktur' && !activeProfile" x-cloak class="pt-40 pb-24 bg-slate-100">
-    <div class="container mx-auto px-6 text-center">
-        <div class="mb-24">
-            <h2 class="text-5xl font-black text-slate-900 mb-4 uppercase">Struktur Organisasi</h2>
-            <p class="text-slate-500 uppercase tracking-[0.3em] font-bold text-xs">Dewan Pimpinan Pusat (DPP)</p>
-        </div>
-        <div class="grid lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-3 flex justify-center">
-                <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-emerald-600">
-                    <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
-                        <img src="ketua.jpg" alt="Ketua Umum" class="w-full h-full object-cover">
+            <div class="container mx-auto px-6 text-center">
+                <div class="mb-24">
+                    <h2 class="text-5xl font-black text-slate-900 mb-4 uppercase">Struktur Organisasi</h2>
+                    <p class="text-slate-500 uppercase tracking-[0.3em] font-bold text-xs">Dewan Pimpinan Pusat (DPP)</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-12 text-left">
+                    <!-- Ketua Umum -->
+                    <div class="lg:col-span-3 flex justify-center">
+                        <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-emerald-600">
+                            <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
+                                <img src="ketua.jpg" alt="Ketua Umum" class="w-full h-full object-cover">
+                            </div>
+                            <div class="md:w-3/5 p-12 text-left">
+                                <span class="text-emerald-600 font-black uppercase text-[10px] tracking-widest">Ketua Umum</span>
+                                <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.ketua.nama"></h3>
+                                <div class="flex gap-4">
+                                    <button @click="activeProfile = 'ketua'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs">Profil</button>
+                                    <a :href="profiles.ketua.portfolio" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs">Portofolio</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="md:w-3/5 p-12 text-left">
-                        <span class="text-emerald-600 font-black uppercase text-[10px] tracking-widest">Ketua Umum</span>
-                        <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.ketua.nama"></h3>
-                        <div class="flex gap-4">
-                            <button @click="activeProfile = 'ketua'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs">Profil</button>
-                            <a href="ketua.jpg" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs">Portofolio</a>
+
+                    <!-- Ketua Dewan Pengawas -->
+                    <div class="lg:col-span-3 flex justify-center mt-8">
+                        <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-slate-800">
+                            <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
+                                <img :src="profiles.pengawas.foto" alt="Ketua Dewan Pengawas" class="w-full h-full object-cover">
+                            </div>
+                            <div class="md:w-3/5 p-12 text-left">
+                                <span class="text-slate-500 font-black uppercase text-[10px] tracking-widest">Ketua Dewan Pengawas</span>
+                                <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.pengawas.nama"></h3>
+                                <div class="flex gap-4">
+                                    <button @click="activeProfile = 'pengawas'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs">Profil</button>
+                                    <a :href="profiles.pengawas.portfolio" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs">Portofolio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sekjen -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
+                        <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
+                            <img src="seketaris.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Sekjen">
+                        </div>
+                        <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.sekjen.nama"></h4>
+                        <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Sekjen</p>
+                        <div class="flex flex-col gap-2">
+                            <button @click="activeProfile = 'sekjen'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
+                            <a :href="profiles.sekjen.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
+                        </div>
+                    </div>
+
+                    <!-- Bendum -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
+                        <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
+                            <img src="bendahara.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Bendum">
+                        </div>
+                        <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.bendum.nama"></h4>
+                        <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Bendahara Umum</p>
+                        <div class="flex flex-col gap-2">
+                            <button @click="activeProfile = 'bendum'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
+                            <a :href="profiles.bendum.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="lg:col-span-3 flex justify-center mt-8">
-    <div class="max-w-4xl w-full bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border-l-[20px] border-slate-800">
-        <div class="md:w-2/5 h-96 md:h-auto overflow-hidden">
-            <img :src="profiles.pengawas.foto" alt="Ketua Dewan Pengawas" class="w-full h-full object-cover">
         </div>
-        <div class="md:w-3/5 p-12 text-left">
-            <span class="text-slate-500 font-black uppercase text-[10px] tracking-widest">Ketua Dewan Pengawas</span>
-            <h3 class="text-3xl font-black text-slate-900 mt-4 mb-8" x-text="profiles.pengawas.nama"></h3>
-            <div class="flex gap-4">
-                <button @click="activeProfile = 'pengawas'; window.scrollTo(0,0)" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-xs shadow-lg hover:bg-slate-800 transition-all">Profil</button>
-                <a :href="profiles.pengawas.portfolio" target="_blank" class="px-8 py-3 border-2 border-slate-900 rounded-xl font-bold uppercase text-xs hover:bg-slate-50 transition-all">Portofolio</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-            <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
-                <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
-                    <img src="seketaris.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Sekjen">
+        <!-- PAGE: DAFTAR ADVOKAT (HALAMAN BARU) -->
+        <div x-show="page === 'daftar-advokat' && !activeProfile" x-cloak class="pt-40 pb-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4">Direktori Advokat</h2>
+                    <p class="text-slate-500 uppercase tracking-widest font-bold text-xs mb-10">Anggota Aktif Seluruh Indonesia</p>
+                    
+                    <!-- Search Bar Sederhana -->
+                    <div class="max-w-xl mx-auto relative group">
+                        <input type="text" x-model="searchTerm" placeholder="Cari nama atau provinsi..." class="w-full py-5 px-8 bg-slate-100 rounded-3xl border-none ring-2 ring-transparent focus:ring-emerald-500 transition-all outline-none text-slate-700">
+                        <i class="fa-solid fa-magnifying-glass absolute right-8 top-6 text-slate-400 group-focus-within:text-emerald-500"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.sekjen.nama"></h4>
-                <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Sekjen</p>
-                <div class="flex flex-col gap-2">
-                    <button @click="activeProfile = 'sekjen'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
-                    <a :href="profiles.sekjen.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
-                </div>
-            </div>
-            <div class="bg-white p-10 rounded-[3rem] shadow-xl group">
-                <div class="w-full h-64 rounded-3xl overflow-hidden mb-8">
-                    <img src="bendahara.jpg" class="img-profile-fix w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Bendum">
-                </div>
-                <h4 class="text-xl font-black uppercase tracking-tighter mb-2" x-text="profiles.bendum.nama"></h4>
-                <p class="text-xs text-emerald-600 font-bold uppercase mb-8">Bendahara Umum</p>
-                <div class="flex flex-col gap-2">
-                    <button @click="activeProfile = 'bendum'; window.scrollTo(0,0)" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold uppercase text-[10px]">Detail</button>
-                    <a :href="profiles.bendum.portfolio" target="_blank" class="w-full py-4 border border-slate-200 rounded-2xl font-bold uppercase text-[10px]">Portofolio</a>
+
+                <!-- Grid Kartu Advokat -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <template x-for="advokat in advokats.filter(i => i.nama.toLowerCase().includes(searchTerm.toLowerCase()) || i.prov.toLowerCase().includes(searchTerm.toLowerCase()))" :key="advokat.nama">
+                        <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all group hover:bg-white">
+                            <div class="w-16 h-16 bg-emerald-600 rounded-2xl mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                                <!-- Placeholder icon karena foto dinamis banyak -->
+                                <i class="fa-solid fa-user-tie text-white text-2xl"></i>
+                            </div>
+                            <div class="text-center">
+                                <h5 class="text-xs font-black text-slate-900 uppercase mb-1 line-clamp-1" x-text="advokat.nama"></h5>
+                                <p class="text-[9px] font-bold text-emerald-600 uppercase tracking-widest mb-4" x-text="advokat.prov"></p>
+                                <a :href="'https://wa.me/' + advokat.wa" target="_blank" class="inline-flex items-center justify-center w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg hover:bg-emerald-600 hover:text-white transition-all">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-
-        <!-- PAGE: LAYANAN (KONTEN TETAP) -->
+        <!-- PAGE: LAYANAN -->
         <div x-show="page === 'layanan' && !activeProfile" x-cloak class="pt-40 pb-24">
             <div class="container mx-auto px-6 text-center">
-                <div class="mb-24">
+                <div class="mb-24 text-center">
                     <h2 class="text-5xl font-black text-slate-900 uppercase">Layanan Hukum</h2>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
@@ -473,17 +563,13 @@
             </div>
         </div>
 
-        <!-- PAGE: BERGABUNG (KONTEN TETAP) -->
+        <!-- PAGE: BERGABUNG -->
         <div x-show="page === 'bergabung' && !activeProfile" x-cloak class="pt-40 pb-24">
             <div class="container mx-auto px-6">
                 <div class="bg-slate-900 rounded-[4rem] p-16 md:p-24 flex flex-col lg:flex-row items-center gap-16">
                     <div class="lg:w-1/2 text-white">
                         <h2 class="text-5xl font-black uppercase tracking-tighter mb-8 leading-none">Bergabung <br><span class="text-emerald-500">Bersama Kami</span></h2>
                         <p class="text-slate-400 mb-8 leading-loose">Jadilah bagian dari organisasi advokat yang menjunjung tinggi profesionalisme dan nilai-nilai Islam. Kami mengundang putra-putri terbaik bangsa untuk berkontribusi.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4 text-xs font-bold uppercase"><i class="fa-solid fa-check text-emerald-500"></i> Syarat: Sarjana Hukum</div>
-                            <div class="flex items-center gap-4 text-xs font-bold uppercase"><i class="fa-solid fa-check text-emerald-500"></i> Memiliki Integritas Moral</div>
-                        </div>
                     </div>
                     <div class="lg:w-1/2 w-full bg-white p-12 rounded-[3rem]">
                         <h4 class="text-2xl font-black uppercase mb-8">Form Minat</h4>
@@ -511,7 +597,7 @@
                         <h2 class="text-4xl font-black text-slate-900 mb-4 uppercase tracking-tighter" x-text="profiles[activeProfile]?.nama"></h2>
                         <p class="text-emerald-600 font-bold uppercase tracking-widest text-lg mb-8" x-text="profiles[activeProfile]?.jabatan"></p>
                         <p class="text-slate-600 leading-loose text-lg mb-12">Berkomitmen kuat dalam memberikan pendampingan hukum yang adil dan bermartabat. Fokus utama adalah pada penyelesaian masalah melalui pendekatan persuasif namun tetap tegas dalam koridor hukum yang berlaku.</p>
-                        <a :href="profiles[activeProfile]?.portfolio" target="_blank" class="px-10 py-4 bg-slate-900 text-white rounded-2xl font-black uppercase text-xs shadow-xl">Lihat Portofolio Lengkap</a>
+                        <a :href="profiles[activeProfile]?.portfolio" target="_blank" class="px-10 py-4 bg-slate-900 text-white rounded-2xl font-black uppercase text-xs shadow-xl inline-block transition-all hover:bg-slate-800">Lihat Portofolio Lengkap</a>
                     </div>
                 </div>
             </div>
@@ -530,31 +616,28 @@
                     </div>
                     <p class="text-slate-500 text-sm font-medium">Perkumpulan Pengacara Islam & Penasehat Hukum Islam Indonesia.</p>
                     <div class="flex gap-4">
-                        <!-- Sosmed Links -->
-                        <a href="https://facebook.com" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://twitter.com" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://youtube.com" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-emerald-600 transition-all"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Menu</h4>
-                    <ul class="space-y-4 text-slate-500 text-xs font-bold uppercase tracking-widest">
+                    <ul class="space-y-4 text-slate-500 text-xs font-bold uppercase tracking-widest text-left">
                         <li><button @click="page = 'home'; window.scrollTo(0,0)" class="hover:text-emerald-500 transition-all">Beranda</button></li>
                         <li><button @click="page = 'tentang'; window.scrollTo(0,0)" class="hover:text-emerald-500 transition-all">Tentang</button></li>
-                        <li><button @click="page = 'layanan'; window.scrollTo(0,0)" class="hover:text-emerald-500 transition-all">Layanan</button></li>
+                        <li><button @click="page = 'daftar-advokat'; window.scrollTo(0,0)" class="hover:text-emerald-500 transition-all">Daftar Advokat</button></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Kontak</h4>
-                    <div class="space-y-4 text-sm text-slate-500 font-medium leading-relaxed">
+                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter text-left">Kontak</h4>
+                    <div class="space-y-4 text-sm text-slate-500 font-medium leading-relaxed text-left">
                         <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Lampung Selatan, Lampung.</p>
                         <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +62 811 536 161</p>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter">Legalitas</h4>
-                    <div class="p-6 bg-white/5 rounded-3xl border border-white/10">
+                    <h4 class="text-xl font-black mb-10 border-l-4 border-emerald-500 pl-4 uppercase tracking-tighter text-left">Legalitas</h4>
+                    <div class="p-6 bg-white/5 rounded-3xl border border-white/10 text-left">
                         <p class="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Kemenkumham RI</p>
                         <p class="text-sm font-black text-emerald-500">AHU-0010185.AH.01.07</p>
                     </div>
@@ -572,4 +655,6 @@
     </a>
 
 </body>
-    </html>
+</html>
+
+```
