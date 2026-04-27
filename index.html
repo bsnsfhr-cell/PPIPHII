@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -48,6 +47,12 @@
             background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(255,255,255,0) 70%);
             z-index: -1;
         }
+
+        /* Advokat photo: hide img if broken, show icon instead */
+        .advokat-foto-img { display: block; }
+        .advokat-foto-img.error { display: none; }
+        .advokat-foto-icon { display: none; }
+        .advokat-foto-icon.show { display: flex; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900" 
@@ -65,7 +70,7 @@
                 portfolio: 'ketua.jpg'
             },
             pengawas: {
-                nama: 'NAMA KETUA DEWAN PENGAWAS',
+                nama: 'UMI MARFUAH,S.H.M.PD',
                 jabatan: 'Ketua Dewan Pengawas',
                 foto: 'pengawas.jpg',
                 portfolio: 'pengawas.jpg'
@@ -84,56 +89,56 @@
             }
         },
         advokats: [
-            { nama: 'Achmad Fauzi, S.H.', prov: 'DKI Jakarta', wa: '6281234567890' },
-            { nama: 'Siti Aminah, S.H.I.', prov: 'Jawa Barat', wa: '6281234567891' },
-            { nama: 'Budi Santoso, M.H.', prov: 'Jawa Tengah', wa: '6281234567892' },
-            { nama: 'Hendra Wijaya, S.H.', prov: 'Jawa Timur', wa: '6281234567893' },
-            { nama: 'Zulkipli, S.Sy.', prov: 'Lampung', wa: '6281234567894' },
-            { nama: 'Nurul Huda, S.H.', prov: 'Banten', wa: '6281234567895' },
-            { nama: 'Rizky Pratama, M.H.', prov: 'Sumatera Utara', wa: '6281234567896' },
-            { nama: 'Dewi Sartika, S.H.', prov: 'Sumatera Selatan', wa: '6281234567897' },
-            { nama: 'Fajar Shodiq, S.H.I.', prov: 'DI Yogyakarta', wa: '6281234567898' },
-            { nama: 'Anisa Bahar, S.H.', prov: 'Bali', wa: '6281234567899' },
-            { nama: 'Irfan Hakim, S.Sy.', prov: 'Riau', wa: '6281234567800' },
-            { nama: 'Lutfi Agizal, M.H.', prov: 'Kalimantan Timur', wa: '6281234567801' },
-            { nama: 'Siska Khair, S.H.', prov: 'Kalimantan Barat', wa: '6281234567802' },
-            { nama: 'Andi Mallarangeng, S.H.', prov: 'Sulawesi Selatan', wa: '6281234567803' },
-            { nama: 'Yusril Ihza, M.H.', prov: 'Bangka Belitung', wa: '6281234567804' },
-            { nama: 'Hotman Paris, S.H.', prov: 'DKI Jakarta', wa: '6281234567805' },
-            { nama: 'Najwa Shihab, S.H.', prov: 'DKI Jakarta', wa: '6281234567806' },
-            { nama: 'Mahendradatta, S.H.', prov: 'Bali', wa: '6281234567807' },
-            { nama: 'Todung Mulya, M.H.', prov: 'Sumatera Utara', wa: '6281234567808' },
-            { nama: 'Elza Syarief, S.H.', prov: 'Jawa Barat', wa: '6281234567809' },
-            { nama: 'Farhat Abbas, S.H.', prov: 'Jawa Tengah', wa: '6281234567810' },
-            { nama: 'Sunan Kalijaga, S.H.', prov: 'Banten', wa: '6281234567811' },
-            { nama: 'Razman Arif, M.H.', prov: 'Sumatera Utara', wa: '6281234567812' },
-            { nama: 'Kamaluddin, S.Sy.', prov: 'Aceh', wa: '6281234567813' },
-            { nama: 'Hamdan Zoelva, M.H.', prov: 'NTB', wa: '6281234567814' },
-            { nama: 'Yusril, S.H.', prov: 'Kepulauan Riau', wa: '6281234567815' },
-            { nama: 'Bambang Widjojanto, S.H.', prov: 'DKI Jakarta', wa: '6281234567816' },
-            { nama: 'Denny Indrayana, M.H.', prov: 'Kalimantan Selatan', wa: '6281234567817' },
-            { nama: 'Refly Harun, S.H.', prov: 'Sumatera Selatan', wa: '6281234567818' },
-            { nama: 'Zainuddin Ali, S.H.', prov: 'Sulawesi Tengah', wa: '6281234567819' },
-            { nama: 'Muladi, M.H.', prov: 'Jawa Timur', wa: '6281234567820' },
-            { nama: 'Bagir Manan, S.H.', prov: 'Lampung', wa: '6281234567821' },
-            { nama: 'Artidjo Alkostar, S.H.', prov: 'NTB', wa: '6281234567822' },
-            { nama: 'Jimly Asshiddiqie, M.H.', prov: 'Sumatera Selatan', wa: '6281234567823' },
-            { nama: 'Mahfud MD, S.H.', prov: 'Jawa Timur', wa: '6281234567824' },
-            { nama: 'Patrialis Akbar, S.Sy.', prov: 'Sumatera Barat', wa: '6281234567825' },
-            { nama: 'Maruarar Siahaan, S.H.', prov: 'Sumatera Utara', wa: '6281234567826' },
-            { nama: 'Hasyim Muzadi, S.H.I.', prov: 'Jawa Timur', wa: '6281234567827' },
-            { nama: 'Din Syamsuddin, M.H.', prov: 'NTB', wa: '6281234567828' },
-            { nama: 'Said Aqil, S.H.', prov: 'Jawa Barat', wa: '6281234567829' },
-            { nama: 'Yusuf Mansur, S.Sy.', prov: 'Banten', wa: '6281234567830' },
-            { nama: 'Aa Gym, S.H.', prov: 'Jawa Barat', wa: '6281234567831' },
-            { nama: 'Ustadz Somad, M.H.', prov: 'Riau', wa: '6281234567832' },
-            { nama: 'Ustadz Adi, S.H.', prov: 'Banten', wa: '6281234567833' },
-            { nama: 'Habib Rizieq, M.H.', prov: 'DKI Jakarta', wa: '6281234567834' },
-            { nama: 'Gus Miftah, S.Sy.', prov: 'DI Yogyakarta', wa: '6281234567835' },
-            { nama: 'Gus Baha, S.H.I.', prov: 'Jawa Tengah', wa: '6281234567836' },
-            { nama: 'Hanif Dhakiri, M.H.', prov: 'Jawa Tengah', wa: '6281234567837' },
-            { nama: 'Muhaimin Iskandar, S.H.', prov: 'Jawa Timur', wa: '6281234567838' },
-            { nama: 'Anies Baswedan, M.H.', prov: 'DKI Jakarta', wa: '6281234567839' }
+            { nama: 'BAHRUN SAPUTRA ISKANDAR. S.H,CLMA,CGL,CLAP.', prov: 'Kalimantan Timur', wa: '62811591305', foto: 'bahrun.jpg' },
+            { nama: 'Siti Aminah, S.H.I.', prov: 'Jawa Barat', wa: '6281234567891', foto: '' },
+            { nama: 'Budi Santoso, M.H.', prov: 'Jawa Tengah', wa: '6281234567892', foto: '' },
+            { nama: 'Hendra Wijaya, S.H.', prov: 'Jawa Timur', wa: '6281234567893', foto: '' },
+            { nama: 'Zulkipli, S.Sy.', prov: 'Lampung', wa: '6281234567894', foto: '' },
+            { nama: 'Nurul Huda, S.H.', prov: 'Banten', wa: '6281234567895', foto: '' },
+            { nama: 'Rizky Pratama, M.H.', prov: 'Sumatera Utara', wa: '6281234567896', foto: '' },
+            { nama: 'Dewi Sartika, S.H.', prov: 'Sumatera Selatan', wa: '6281234567897', foto: '' },
+            { nama: 'Fajar Shodiq, S.H.I.', prov: 'DI Yogyakarta', wa: '6281234567898', foto: '' },
+            { nama: 'Anisa Bahar, S.H.', prov: 'Bali', wa: '6281234567899', foto: '' },
+            { nama: 'Irfan Hakim, S.Sy.', prov: 'Riau', wa: '6281234567800', foto: '' },
+            { nama: 'Lutfi Agizal, M.H.', prov: 'Kalimantan Timur', wa: '6281234567801', foto: '' },
+            { nama: 'Siska Khair, S.H.', prov: 'Kalimantan Barat', wa: '6281234567802', foto: '' },
+            { nama: 'Andi Mallarangeng, S.H.', prov: 'Sulawesi Selatan', wa: '6281234567803', foto: '' },
+            { nama: 'Yusril Ihza, M.H.', prov: 'Bangka Belitung', wa: '6281234567804', foto: '' },
+            { nama: 'Hotman Paris, S.H.', prov: 'DKI Jakarta', wa: '6281234567805', foto: '' },
+            { nama: 'Najwa Shihab, S.H.', prov: 'DKI Jakarta', wa: '6281234567806', foto: '' },
+            { nama: 'Mahendradatta, S.H.', prov: 'Bali', wa: '6281234567807', foto: '' },
+            { nama: 'Todung Mulya, M.H.', prov: 'Sumatera Utara', wa: '6281234567808', foto: '' },
+            { nama: 'Elza Syarief, S.H.', prov: 'Jawa Barat', wa: '6281234567809', foto: '' },
+            { nama: 'Farhat Abbas, S.H.', prov: 'Jawa Tengah', wa: '6281234567810', foto: '' },
+            { nama: 'Sunan Kalijaga, S.H.', prov: 'Banten', wa: '6281234567811', foto: '' },
+            { nama: 'Razman Arif, M.H.', prov: 'Sumatera Utara', wa: '6281234567812', foto: '' },
+            { nama: 'Kamaluddin, S.Sy.', prov: 'Aceh', wa: '6281234567813', foto: '' },
+            { nama: 'Hamdan Zoelva, M.H.', prov: 'NTB', wa: '6281234567814', foto: '' },
+            { nama: 'Yusril, S.H.', prov: 'Kepulauan Riau', wa: '6281234567815', foto: '' },
+            { nama: 'Bambang Widjojanto, S.H.', prov: 'DKI Jakarta', wa: '6281234567816', foto: '' },
+            { nama: 'Denny Indrayana, M.H.', prov: 'Kalimantan Selatan', wa: '6281234567817', foto: '' },
+            { nama: 'Refly Harun, S.H.', prov: 'Sumatera Selatan', wa: '6281234567818', foto: '' },
+            { nama: 'Zainuddin Ali, S.H.', prov: 'Sulawesi Tengah', wa: '6281234567819', foto: '' },
+            { nama: 'Muladi, M.H.', prov: 'Jawa Timur', wa: '6281234567820', foto: '' },
+            { nama: 'Bagir Manan, S.H.', prov: 'Lampung', wa: '6281234567821', foto: '' },
+            { nama: 'Artidjo Alkostar, S.H.', prov: 'NTB', wa: '6281234567822', foto: '' },
+            { nama: 'Jimly Asshiddiqie, M.H.', prov: 'Sumatera Selatan', wa: '6281234567823', foto: '' },
+            { nama: 'Mahfud MD, S.H.', prov: 'Jawa Timur', wa: '6281234567824', foto: '' },
+            { nama: 'Patrialis Akbar, S.Sy.', prov: 'Sumatera Barat', wa: '6281234567825', foto: '' },
+            { nama: 'Maruarar Siahaan, S.H.', prov: 'Sumatera Utara', wa: '6281234567826', foto: '' },
+            { nama: 'Hasyim Muzadi, S.H.I.', prov: 'Jawa Timur', wa: '6281234567827', foto: '' },
+            { nama: 'Din Syamsuddin, M.H.', prov: 'NTB', wa: '6281234567828', foto: '' },
+            { nama: 'Said Aqil, S.H.', prov: 'Jawa Barat', wa: '6281234567829', foto: '' },
+            { nama: 'Yusuf Mansur, S.Sy.', prov: 'Banten', wa: '6281234567830', foto: '' },
+            { nama: 'Aa Gym, S.H.', prov: 'Jawa Barat', wa: '6281234567831', foto: '' },
+            { nama: 'Ustadz Somad, M.H.', prov: 'Riau', wa: '6281234567832', foto: '' },
+            { nama: 'Ustadz Adi, S.H.', prov: 'Banten', wa: '6281234567833', foto: '' },
+            { nama: 'Habib Rizieq, M.H.', prov: 'DKI Jakarta', wa: '6281234567834', foto: '' },
+            { nama: 'Gus Miftah, S.Sy.', prov: 'DI Yogyakarta', wa: '6281234567835', foto: '' },
+            { nama: 'Gus Baha, S.H.I.', prov: 'Jawa Tengah', wa: '6281234567836', foto: '' },
+            { nama: 'Hanif Dhakiri, M.H.', prov: 'Jawa Tengah', wa: '6281234567837', foto: '' },
+            { nama: 'Muhaimin Iskandar, S.H.', prov: 'Jawa Timur', wa: '6281234567838', foto: '' },
+            { nama: 'Anies Baswedan, M.H.', prov: 'DKI Jakarta', wa: '6281234567839', foto: '' }
         ]
       }" 
       @scroll.window="scrolled = (window.pageYOffset > 50)">
@@ -155,7 +160,6 @@
                 <button @click="page = 'home'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'home' && !activeProfile ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Beranda</button>
                 <button @click="page = 'tentang'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'tentang' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Tentang</button>
                 <button @click="page = 'struktur'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'struktur' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Struktur</button>
-                <!-- MENU BARU: DAFTAR ADVOKAT -->
                 <button @click="page = 'daftar-advokat'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'daftar-advokat' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Daftar Advokat</button>
                 <button @click="page = 'layanan'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'layanan' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Layanan</button>
                 <button @click="page = 'bergabung'; activeProfile = null; window.scrollTo(0,0)" :class="page === 'bergabung' ? 'text-emerald-600' : (!scrolled && page === 'home' ? 'text-slate-200' : 'text-slate-600')">Bergabung</button>
@@ -502,14 +506,14 @@
             </div>
         </div>
 
-        <!-- PAGE: DAFTAR ADVOKAT (HALAMAN BARU) -->
+        <!-- PAGE: DAFTAR ADVOKAT -->
         <div x-show="page === 'daftar-advokat' && !activeProfile" x-cloak class="pt-40 pb-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4">Direktori Advokat</h2>
                     <p class="text-slate-500 uppercase tracking-widest font-bold text-xs mb-10">Anggota Aktif Seluruh Indonesia</p>
                     
-                    <!-- Search Bar Sederhana -->
+                    <!-- Search Bar -->
                     <div class="max-w-xl mx-auto relative group">
                         <input type="text" x-model="searchTerm" placeholder="Cari nama atau provinsi..." class="w-full py-5 px-8 bg-slate-100 rounded-3xl border-none ring-2 ring-transparent focus:ring-emerald-500 transition-all outline-none text-slate-700">
                         <i class="fa-solid fa-magnifying-glass absolute right-8 top-6 text-slate-400 group-focus-within:text-emerald-500"></i>
@@ -520,10 +524,33 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     <template x-for="advokat in advokats.filter(i => i.nama.toLowerCase().includes(searchTerm.toLowerCase()) || i.prov.toLowerCase().includes(searchTerm.toLowerCase()))" :key="advokat.nama">
                         <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all group hover:bg-white">
-                            <div class="w-16 h-16 bg-emerald-600 rounded-2xl mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                                <!-- Placeholder icon karena foto dinamis banyak -->
-                                <i class="fa-solid fa-user-tie text-white text-2xl"></i>
+
+                            <!--
+                                FOTO ADVOKAT:
+                                - Isi field `foto` di array advokats dengan nama file foto (misal: 'foto/achmad.jpg')
+                                - Jika foto ada & berhasil load → tampil foto
+                                - Jika foto kosong atau gagal load → tampil icon default otomatis
+                                - Tidak mempengaruhi bagian lain sama sekali
+                            -->
+                            <div class="w-16 h-16 rounded-2xl mx-auto mb-4 overflow-hidden relative bg-emerald-600 flex items-center justify-center"
+                                 x-data="{ imgError: false }">
+
+                                <!-- Foto: tampil jika field foto diisi dan berhasil load -->
+                                <img
+                                    x-show="advokat.foto && !imgError"
+                                    :src="advokat.foto"
+                                    @error="imgError = true"
+                                    class="w-full h-full object-cover object-top absolute inset-0"
+                                    :alt="advokat.nama"
+                                >
+
+                                <!-- Fallback icon: tampil jika foto kosong atau gagal load -->
+                                <i
+                                    x-show="!advokat.foto || imgError"
+                                    class="fa-solid fa-user-tie text-white text-2xl"
+                                ></i>
                             </div>
+
                             <div class="text-center">
                                 <h5 class="text-xs font-black text-slate-900 uppercase mb-1 line-clamp-1" x-text="advokat.nama"></h5>
                                 <p class="text-[9px] font-bold text-emerald-600 uppercase tracking-widest mb-4" x-text="advokat.prov"></p>
@@ -656,5 +683,3 @@
 
 </body>
 </html>
-
-```
